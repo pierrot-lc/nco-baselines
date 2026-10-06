@@ -1,0 +1,21 @@
+python train.py \
+--task "tsp" \
+--project_name "consistency_co_test" \
+--wandb_logger_name "tsp_100" \
+--do_test \
+--storage_path "./" \
+--test_split "../../insertsp/data/tsp-100.npz" \
+--inference_schedule "cosine" \
+--inference_diffusion_steps 1 \
+--two_opt_iterations 0 \
+--ckpt_path 'tsp500.ckpt' \
+--consistency \
+--use_intermediate \
+--resume_weight_only \
+--parallel_sampling 1 \
+--sequential_sampling 1 \
+--rewrite \
+--guided \
+--rewrite_steps 1 \
+--rewrite_ratio 0.2 \
+--offline
