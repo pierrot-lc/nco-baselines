@@ -1,0 +1,39 @@
+[project]
+name = "coexpander"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Pierrot LC", email = "pierrotlc@proton.me" }
+]
+requires-python = "==3.12.15"
+dependencies = [
+    "ml4co-kit==0.3.3",
+    "numpy<2.0",
+    "pytorch-lightning>=2.6.6",
+    "scipy==1.15.1",
+    "setuptools<80.0.0",
+    "torch==2.11.0",
+    "wandb==0.16.3",
+]
+
+[tool.uv.extra-build-dependencies]
+torch-cluster = ["torch"]
+torch-scatter = ["torch"]
+torch-sparse = ["torch"]
+torch-spline-conv = ["torch"]
+
+[project.scripts]
+coexpander = "coexpander:main"
+
+[[tool.uv.index]]
+url = "https://data.pyg.org/whl/torch-2.11.0+cu130.html"
+
+[build-system]
+requires = ["uv_build>=0.12.22,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+required-environments = [
+    "sys_platform == 'linux' and platform_machine == 'x86_64'",
+]
