@@ -1,0 +1,28 @@
+[project]
+name = "sil"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Pierrot LC", email = "pierrotlc@proton.me" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.3",
+    "pandas>=3.0.6",
+    "pytz>=2026.5",
+    "torch>=2.14.1",
+    "torchaudio>=2.11.0",
+    "torchvision>=0.29.1",
+    "tqdm>=4.70.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.22,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+required-environments = [
+    "sys_platform == 'linux' and platform_machine == 'x86_64'",
+]

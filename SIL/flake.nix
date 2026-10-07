@@ -41,6 +41,7 @@
       cudaPackages.cudatoolkit
       pkgs.stdenv.cc.cc.lib
       pkgs.zlib
+      pkgs.python313
 
       # Where your local "lib/libcuda.so" lives. If you're not on NixOS,
       # you should provide the right path (likely another one).
@@ -54,6 +55,7 @@
       env = {
         # General libs for PyTorch and Numpy.
         LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath libs;
+        CPATH = "${pkgs.python313}/include/python3.13:${pkgs.zlib.dev}/include:/home/pierrot-lc/GitHub/nco-baselines/SIL/.venv/lib/python3.13/site-packages/numpy/_core/include";
 
         # Specifics for PyTorch's compilation.
         CC = "${pkgs.gcc}/bin/gcc";
@@ -64,6 +66,7 @@
       venvDir = "./.venv";
       postShellHook = ''
         uv sync
+        cd utils/insertion; make; cd -
       '';
     };
   in {
