@@ -4,11 +4,11 @@ python train.py \
 --wandb_logger_name "tsp_100" \
 --do_test \
 --storage_path "./" \
---test_split "../../insertsp/data/tsp-100.npz" \
+--test_split "../tsp-100.npz" \
 --inference_schedule "cosine" \
---inference_diffusion_steps 1 \
---two_opt_iterations 0 \
---ckpt_path 'tsp500.ckpt' \
+--inference_diffusion_steps 20 \
+--two_opt_iterations 100 \
+--ckpt_path 'tsp100.ckpt' \
 --consistency \
 --use_intermediate \
 --resume_weight_only \
@@ -16,6 +16,6 @@ python train.py \
 --sequential_sampling 1 \
 --rewrite \
 --guided \
---rewrite_steps 1 \
+--rewrite_steps 20 \
 --rewrite_ratio 0.2 \
 --offline

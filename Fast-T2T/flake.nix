@@ -66,6 +66,8 @@
       venvDir = "./.venv";
       postShellHook = ''
         uv sync
+        uv pip install --force-reinstall torch-sparse torch-scatter -f https://data.pyg.org/whl/torch-2.11.0+cu130.html
+        cd diffusion/utils/cython_merge; python setup.py build_ext --inplace; cd -
       '';
     };
   in {
