@@ -1,0 +1,24 @@
+[project]
+name = "udc"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Pierrot LC", email = "pierrotlc@proton.me" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.11.2",
+    "networkx>=3.7",
+    "numpy>=2.5.3",
+    "pytz>=2026.5",
+    "torch>=2.14.1",
+    "torch-geometric>=2.8.0.post1",
+]
+
+[project.scripts]
+udc = "udc:main"
+
+[build-system]
+requires = ["uv_build>=0.12.22,<0.13.0"]
+build-backend = "uv_build"
